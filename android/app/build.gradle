@@ -130,6 +130,8 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
+    flavorDimensions "default"
+
     defaultConfig {
         applicationId "com.reactnativestarter"
         minSdkVersion rootProject.ext.minSdkVersion
@@ -145,6 +147,18 @@ android {
             include "armeabi-v7a", "x86", "arm64-v8a", "x86_64"
         }
     }
+
+    productFlavors {
+        UAT {
+            applicationId 'com.reactnativestarter.uat'
+            resValue "string", "build_config_package", "com.myapp"
+        }
+        PRD {
+            applicationId 'com.reactnativestarter.prd'
+            resValue "string", "build_config_package", "com.myapp"
+        }
+    }
+
     signingConfigs {
         debug {
             storeFile file('debug.keystore')
